@@ -12,8 +12,8 @@ public class JdbcBasico {
 //    Class.forName("com.mysql.jdbc.Driver");
 
     //Estabelecer uma conexão com o banco de dados.
-    String url = "jdbc:mysql://localhost:3306/pw";
-    String user = "pwuser";
+    String url = "jdbc:mysql://localhost:3306/ao";
+    String user = "aouser";
     String password = "12345678";
     Connection conn = DriverManager.getConnection(url, user, password);
 
