@@ -27,9 +27,9 @@ public class CadastroAlunoJdbcController extends HttpServlet {
     List<Aluno> alunos = null;
     try {
       if (op.equals("Salvar")) {
-        CadastroAlunoJdbcModel.salvar(aluno);
+    	  CadastroAlunoJdbcModel.salvar(aluno);
       } else if (op.equals("Excluir")) {
-        CadastroAlunoJdbcModel.excluir(aluno);
+    	  CadastroAlunoJdbcModel.excluir(aluno);
       }
 
       alunos = CadastroAlunoJdbcModel.listar();

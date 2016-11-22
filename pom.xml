@@ -41,7 +41,7 @@
 
   <build>
     <!-- Define o nome do pacote final que será gerado. -->
-    <finalName>aulaCadastro</finalName>
+    <finalName>alunoCadastro</finalName>
 
     <plugins>
 
