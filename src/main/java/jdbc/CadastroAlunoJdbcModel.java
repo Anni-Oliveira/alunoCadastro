@@ -13,9 +13,9 @@ public class CadastroAlunoJdbcModel {
 
   private static Connection obterConexao() throws SQLException {
     //Estabelecer uma conexão com o banco de dados.
-    String url = "jdbc:mysql://localhost:3306/ao";
-    String user = "aouser";
-    String password = "12345678";
+    String url = "jdbc:mysql://localhost:3306/alunoCadastro";
+    String user = "root";
+    String password = "";
     Connection conn = DriverManager
         .getConnection(url, user, password);
     return conn;
@@ -54,6 +54,7 @@ public class CadastroAlunoJdbcModel {
     	Aluno aluno = new Aluno();
     	aluno.setMatricula(rs.getString("matricula"));
     	aluno.setNome(rs.getString("nome"));
+    	aluno.setCurso(rs.getString("curso"));
       // Adiciona o usuário na lista de usuários.
     	listaDeAlunos.add(aluno);
     }
@@ -62,19 +63,20 @@ public class CadastroAlunoJdbcModel {
 
   private static void inserir(Connection conn, Aluno usuario) throws SQLException {
     //Obter sentença SQL.
-    String sql = "insert into usuario (nome, senha) values (?, ?)";
+    String sql = "insert into usuario (matricula, nome, curso) values (?, ?, ?)";
     PreparedStatement pstmt = conn.prepareStatement(sql);
+    pstmt.setString(1, usuario.getMatricula());
     pstmt.setString(1, usuario.getNome());
-    pstmt.setString(2, usuario.getSenha());
+    pstmt.setString(2, usuario.getCurso());
     pstmt.execute();
   }
 
   private static void alterar(Connection conn, Aluno aluno) throws SQLException {
     //Obter sentença SQL.
-    String sql = "update usuario set nome = ?, senha = ? where matricula = ?";
+    String sql = "update usuario set nome = ?, curso = ? where matricula = ?";
     PreparedStatement pstmt = conn.prepareStatement(sql);
     pstmt.setString(1, aluno.getNome());
-    pstmt.setString(2, aluno.getSenha());
+    pstmt.setString(2, aluno.getCurso());
     pstmt.setString(3, aluno.getMatricula());
     pstmt.execute();
   }

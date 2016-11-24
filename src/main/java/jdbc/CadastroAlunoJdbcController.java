@@ -22,7 +22,7 @@ public class CadastroAlunoJdbcController extends HttpServlet {
     Aluno aluno = new Aluno();
     aluno.setMatricula(req.getParameter("matricula"));
     aluno.setNome(req.getParameter("nome"));
-    aluno.setSenha(req.getParameter("senha"));
+    aluno.setCurso(req.getParameter("curso"));
 
     List<Aluno> alunos = null;
     try {

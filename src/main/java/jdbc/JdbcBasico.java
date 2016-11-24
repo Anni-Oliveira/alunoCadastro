@@ -12,9 +12,9 @@ public class JdbcBasico {
 //    Class.forName("com.mysql.jdbc.Driver");
 
     //Estabelecer uma conexão com o banco de dados.
-    String url = "jdbc:mysql://localhost:3306/ao";
-    String user = "aouser";
-    String password = "12345678";
+    String url = "jdbc:mysql://localhost:3306/alunoCadastro";
+    String user = "root";
+    String password = "";
     Connection conn = DriverManager.getConnection(url, user, password);
 
     //Obter sentença SQL.
@@ -22,11 +22,11 @@ public class JdbcBasico {
     //stmt.execute("insert into aluno (nome, matricula) values (\"João\", \"654321\")");
 
     //Executar SELECT.
-    ResultSet rs = stmt.executeQuery("select id, matricula, nome from aluno");
+    ResultSet rs = stmt.executeQuery("select id, matricula, nome, curso from aluno");
     while (rs.next()) {
-      System.out.println("id = " + rs.getString("id"));
       System.out.println("matricula = " + rs.getString("matricula"));
       System.out.println("nome = " + rs.getString("nome"));
+      System.out.println("curso = " + rs.getString("curso"));
     }
   }
 }

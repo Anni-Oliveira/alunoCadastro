@@ -16,14 +16,15 @@ public class Aluno {
   public void setNome(String nome) {
     this.nome = nome;
   }
-
-  private String senha;
-  public String getSenha() {
-    return senha;
+  
+  private String curso;
+  public String getCurso() {
+    return curso;
   }
-  public void setSenha(String senha) {
-    this.senha = senha;
+  public void setCurso(String curso) {
+    this.curso = curso;
   }
+ 
   public boolean hasMatricula() {
     return matricula != null && !matricula.trim().equals("");
   }
